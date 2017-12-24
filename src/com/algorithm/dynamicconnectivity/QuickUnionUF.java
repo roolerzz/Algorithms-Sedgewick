@@ -15,7 +15,7 @@ public class QuickUnionUF{
 		}
 	}
 
-	// Find if element p is connected to element q. O(1) Time complexity.
+	// Find if element p is connected to element q. O(n) worst case complexity if the tree is linear.
 	public boolean find(int p, int q){
 		return root(p)==root(q);
 	}
