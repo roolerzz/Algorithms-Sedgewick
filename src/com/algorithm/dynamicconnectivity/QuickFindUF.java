@@ -1,3 +1,4 @@
+package com.algorithm.dynamicconnectivity;
 public class QuickFindUF {
 
 	// Solving the problem of Dynamic connectivity of N Objects. Objects are modeled as 

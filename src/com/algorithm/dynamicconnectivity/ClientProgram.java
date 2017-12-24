@@ -1,3 +1,4 @@
+package com.algorithm.dynamicconnectivity;
 public class ClientProgram {
 
 	public static void main(String[] args){
