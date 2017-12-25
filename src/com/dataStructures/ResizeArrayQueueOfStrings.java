@@ -1,6 +1,6 @@
 package com.dataStructures;
 
-public class ResizeArrayQueue {
+public class ResizeArrayQueueOfStrings {
 	// Earlier we needed to provide the size of the array before hand, to
 	// initialize, which is kind of the restriction in cases, where client
 	// does not know what is number of elements its gonno insert in the stack. To
@@ -17,7 +17,7 @@ public class ResizeArrayQueue {
 
 	private int tail = 0;
 
-	public ResizeArrayQueue() {
+	public ResizeArrayQueueOfStrings() {
 		arr = new String[1];
 	}
 
