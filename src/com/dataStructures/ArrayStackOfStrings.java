@@ -22,8 +22,8 @@ public class ArrayStackOfStrings{
 
 	public void pop(){
 		if(isEmpty()) {System.out.println("Stack Underflow"); return;}
-		arr[top] = null;
 		System.out.print(arr[--top] + " ");
+		arr[top] = null;
 	}
 	
 	public boolean isEmpty(){
