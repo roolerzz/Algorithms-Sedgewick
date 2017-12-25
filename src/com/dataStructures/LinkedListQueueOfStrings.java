@@ -14,15 +14,14 @@ public class LinkedListQueueOfStrings{
 	
 	// insert at the last of the linked list
 	public void enqueue(String obj){
+		Node oldLast = last;
+		last = new Node();
+		last.item=obj;
+		
 		if(isEmpty()){
-			last = new Node();
-			last.item=obj;
 			first = last;
-			return;
-		}
-			Node oldLast = last;
-			last = new Node();
-			last.item=obj;
+			}
+		else
 			oldLast.next=last;
 	}
 	
@@ -34,12 +33,10 @@ public class LinkedListQueueOfStrings{
 			return;
 			}
 		System.out.print(first.item + " ");
-		if(first == last){
-		first = null;
-		last = null;
-		}
-		else
 		first = first.next;
+		if(isEmpty()) {
+			last = null;
+		}
 	}
 	
 	public boolean isEmpty(){
