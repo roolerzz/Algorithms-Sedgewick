@@ -1,6 +1,6 @@
 package com.dataStructures;
 
-public class LinkedListQueueOfStrings{
+public class LinkedListBasedQueueOfStrings{
 	//FIFO. Need 2 variables 1 to track first node and 1 to track last. First is where deletion(dequeue) would be done and last is where addition(enqueue).	
 
 	private Node first = null; 

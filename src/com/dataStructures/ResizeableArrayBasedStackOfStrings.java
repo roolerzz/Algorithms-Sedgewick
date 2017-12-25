@@ -1,7 +1,7 @@
 package com.dataStructures;
 
 
-public class ResizeArrayStackOfStrings{
+public class ResizeableArrayBasedStackOfStrings{
 	// Earlier we needed to provide the size of the array before hand, to initialize, which is kind of the restriction in cases, where client
 	// does not know what is number of elements its gonno insert in the stack. To work with that limitation, we need to resize the array.
 	// Everytime in case of push operation, if the stack is full, create a new array with double the size, copy the existing contents onto the new
@@ -12,7 +12,7 @@ public class ResizeArrayStackOfStrings{
 
 	private int top=0;
 
-	public ResizeArrayStackOfStrings(){
+	public ResizeableArrayBasedStackOfStrings(){
 		arr = new String[1];
 	}
 	

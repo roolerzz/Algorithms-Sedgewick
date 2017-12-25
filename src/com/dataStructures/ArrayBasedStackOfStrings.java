@@ -1,12 +1,12 @@
 package com.dataStructures;
 
-public class ArrayStackOfStrings{
+public class ArrayBasedStackOfStrings{
 
 	private String[] arr = null;
 
 	private int top=0;
 
-	public ArrayStackOfStrings(int n){
+	public ArrayBasedStackOfStrings(int n){
 		arr = new String[n];
 	}
 	

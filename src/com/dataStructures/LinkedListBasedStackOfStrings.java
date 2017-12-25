@@ -1,6 +1,6 @@
 package com.dataStructures;
 
-public class LinkedListStackOfStrings{
+public class LinkedListBasedStackOfStrings{
 	
 	private Node first = null; 
 
