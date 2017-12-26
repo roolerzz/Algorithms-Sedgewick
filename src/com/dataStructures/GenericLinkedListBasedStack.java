@@ -1,7 +1,28 @@
 package com.dataStructures;
 
-public class GenericLinkedListBasedStack<Item>{
+import java.util.Iterator;
+
+public class GenericLinkedListBasedStack<Item> implements Iterable<Item>{
 	
+	public class ListIterator implements Iterator<Item> {
+		
+		private Node current = first;
+			
+		@Override
+		public boolean hasNext() {
+			return current!=null;
+		}
+
+		@Override
+		public Item next() {
+			Item item = current.item;
+			current = current.next;
+			return item;
+		}
+
+	}
+
+
 	private Node first = null; 
 
 	private class Node {
@@ -35,6 +56,12 @@ public class GenericLinkedListBasedStack<Item>{
 	public boolean isEmpty(){
 		return first==null;
 	}
+
+
+	@Override
+	public Iterator<Item> iterator() {
+		return new ListIterator();
+	}
 	
 	/*@Override
 	public String toString() {
@@ -53,10 +80,9 @@ public class GenericLinkedListBasedStack<Item>{
 	}*/
 }
 
-
 /*public class ClientProgram {
 	public static void main(String[] args){
-	LinkedListStackOfStrings stack = new LinkedListStackOfStrings();
+		GenericLinkedListBasedStack<String> stack = new GenericLinkedListBasedStack<String>();
 	System.out.println(stack);
 	stack.push("to");
 	stack.push("be");
@@ -72,6 +98,9 @@ public class GenericLinkedListBasedStack<Item>{
 	stack.pop();
 	stack.pop();
 	stack.push("is");
+	for(String s : stack) {
+		System.out.println("String is : " + s);
+	}
 	System.out.println(stack);
 	}
 }*/
