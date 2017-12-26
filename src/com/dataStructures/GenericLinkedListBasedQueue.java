@@ -1,7 +1,31 @@
 package com.dataStructures;
 
-public class GenericLinkedListBasedQueue<Item>{
+import java.util.Iterator;
+
+public class GenericLinkedListBasedQueue<Item> implements Iterable<Item>{
 	//FIFO. Need 2 variables 1 to track first node and 1 to track last. First is where deletion(dequeue) would be done and last is where addition(enqueue).	
+
+	public class QueueIterator implements Iterator<Item> {
+
+		private Node current = first;	
+	
+		@Override
+		public boolean hasNext() {
+			return current!=null;
+		}
+
+		@Override
+		public Item next() {
+			Item item = current.item;
+			current = current.next;
+			return item;
+		}
+		@Override
+		public void remove() {
+			throw new UnsupportedOperationException();
+		}
+
+	}
 
 	private Node first = null; 
 
@@ -41,6 +65,11 @@ public class GenericLinkedListBasedQueue<Item>{
 	
 	public boolean isEmpty(){
 		return first==null;
+	}
+
+	@Override
+	public Iterator<Item> iterator() {
+		return new QueueIterator();
 	}
 	
 	/*@Override
