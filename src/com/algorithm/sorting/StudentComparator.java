@@ -3,11 +3,11 @@ package com.algorithm.sorting;
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class Student {
+public class StudentComparator {
 
-	public static final Comparator<Student> NAME_COMPARATOR = new NameComparator();
-	public static final Comparator<Student> DOB_COMPARATOR = new RollNoComparator();
-	public static final Comparator<Student> ROLL_COMPARATOR = new AgeComparator();
+	public static final Comparator<StudentComparator> NAME_COMPARATOR = new NameComparator();
+	public static final Comparator<StudentComparator> DOB_COMPARATOR = new RollNoComparator();
+	public static final Comparator<StudentComparator> ROLL_COMPARATOR = new AgeComparator();
 	
 	private int rollNo;
 	
@@ -34,27 +34,27 @@ public class Student {
 		this.dob = dob;
 	}
 	
-	public Student(int rollNo, String name, ComparableDate dob) {
+	public StudentComparator(int rollNo, String name, ComparableDate dob) {
 		this.rollNo = rollNo;
 		Name = name;
 		this.dob = dob;
 	}
 	
-	private static class NameComparator implements Comparator<Student>{
+	private static class NameComparator implements Comparator<StudentComparator>{
 		@Override
-		public int compare(Student o1, Student o2) {
+		public int compare(StudentComparator o1, StudentComparator o2) {
 			return o1.Name.compareTo(o2.Name);
 		}
 	}
-	private static class AgeComparator implements Comparator<Student>{
+	private static class AgeComparator implements Comparator<StudentComparator>{
 		@Override
-		public int compare(Student o1, Student o2) {
+		public int compare(StudentComparator o1, StudentComparator o2) {
 			return o1.dob.compareTo(o2.dob);
 		}
 	}
-	private static class RollNoComparator implements Comparator<Student>{
+	private static class RollNoComparator implements Comparator<StudentComparator>{
 		@Override
-		public int compare(Student o1, Student o2) {
+		public int compare(StudentComparator o1, StudentComparator o2) {
 			return o1.rollNo-o2.rollNo;
 		}
 	}
