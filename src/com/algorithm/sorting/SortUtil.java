@@ -12,4 +12,11 @@ public class SortUtil{
 		// A's compareTo method should throw exception in case of incompatible objects.
 		return a.compareTo(b) < 0;
 	}	
+	public static void printArray(Comparable[] arr) {
+		int len = arr.length;
+		System.out.println();
+		for(int i=0; i<len;i++) {
+			System.out.print(":" + arr[i]);
+		}
+	}
 }
