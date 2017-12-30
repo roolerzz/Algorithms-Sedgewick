@@ -16,7 +16,7 @@ public class BottomUpMergeSort{
 				instance.merge(arr,aux,low,mid,high);
 			}
 			System.out.println("Printing after each size");
-			SortUtil.printArray(arr);
+			SortUtil.printArrayComparable(arr);
 		}
 	}
 }

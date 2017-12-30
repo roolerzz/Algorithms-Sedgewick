@@ -21,4 +21,10 @@ public class ComparableDate implements Comparable<ComparableDate>{
 		if(this.day > obj.day) return 1;
 		return 0;
 	}
+	
+	@Override
+	public String toString() {
+		return month+"/"+day+"/"+year;
+	}
+	
 }
