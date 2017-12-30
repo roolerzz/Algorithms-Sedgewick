@@ -16,7 +16,7 @@ public class MergeSort {
 		merge(arr, aux ,low, mid, high);
 	}
 
-	private void merge(Comparable[] arr, Comparable[] aux, int low, int mid, int high) {
+	public void merge(Comparable[] arr, Comparable[] aux, int low, int mid, int high) {
 		// copying to auxilliary array before merging.
 		int i = low;
 		int j = mid + 1;
@@ -24,7 +24,7 @@ public class MergeSort {
 			aux[k] = arr[k];
 		}
 		for (int k = low; k <= high; k++) {
-			if (i >= j)
+			if (i > mid)
 				arr[k] = aux[j++];
 			else if (j > high)
 				arr[k] = aux[i++];
