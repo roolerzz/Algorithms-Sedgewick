@@ -8,15 +8,15 @@ public class BottomUpMergeSort{
 		int N = arr.length;
 		System.out.println();
 		Comparable[] aux = new Comparable[N];
-		for(int sz = 1 ; sz <2*N ; sz = 2*sz){
-			for(int j = 0; j<N ; j = j + sz){
-				int low = j;
-				int high = Math.min(j+sz-1, N-1);
-				int mid = low + (high-low)/2;
-				
+		for(int sz = 1 ; sz < N ; sz = 2*sz){
+			for(int low = 0; low<N-sz ; low = low + 2*sz){
+				int mid = low + sz -1;
+				int high = Math.min(low + 2* sz-1, N-1);
 				System.out.println("Merging Low : "+ low + " Mid : " + mid + " high : " + high);
 				instance.merge(arr,aux,low,mid,high);
-			}		
+			}
+			System.out.println("Printing after each size");
+			SortUtil.printArray(arr);
 		}
 	}
 }
