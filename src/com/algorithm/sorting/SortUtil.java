@@ -19,7 +19,7 @@ public class SortUtil{
 			System.out.print(":" + arr[i]);
 		}
 	}
-	public static void printArray(Student[] arr) {
+	public static void printArray(StudentComparator[] arr) {
 		int len = arr.length;
 		System.out.println();
 		for(int i=0; i<len;i++) {
