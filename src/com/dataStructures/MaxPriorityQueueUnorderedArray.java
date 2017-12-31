@@ -4,19 +4,19 @@ import com.algorithm.sorting.SortUtil;
 
 public class MaxPriorityQueueUnorderedArray<Key extends Comparable<Key>>{
 
-	Comparable[] key;
+	Key[] key;
 
 	int top=0;
 	
 	public MaxPriorityQueueUnorderedArray(int N){
-		key = new Comparable[N];
+		key = (Key[]) new Comparable[N];
 	}
 	
 	public boolean isEmpty(){
 		return top==0;
 	}
 
-	public void insert(Comparable val){
+	public void insert(Key val){
 		if(top==key.length-1) {
 			System.out.println("Removing items before inserting. ");
 			delMax();
@@ -24,7 +24,7 @@ public class MaxPriorityQueueUnorderedArray<Key extends Comparable<Key>>{
 		key[top++] = val;
 	}
 
-	public Comparable delMax(){
+	public Key delMax(){
 		if(isEmpty()) {
 			System.out.println("Cannot delete from an empty Priority Queue.");
 			return null;
@@ -37,7 +37,7 @@ public class MaxPriorityQueueUnorderedArray<Key extends Comparable<Key>>{
 		}
 		SortUtil.exchange(key,maxInd,top-1);
 		//System.out.println("Max Element Removed : " + key[top-1]);
-		Comparable maxKey = key[top-1];
+		Key maxKey = key[top-1];
 		key[--top] = null;
 		return maxKey;
 	}

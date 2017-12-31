@@ -4,12 +4,12 @@ import com.algorithm.sorting.SortUtil;
 
 public class MinPriorityQueueOrderedArray<Key extends Comparable<Key>>{
 
-	Comparable[] key;
+	Key[] key;
 
 	int top=0;
 	
 	public MinPriorityQueueOrderedArray(int N){
-		key = new Comparable[N];
+		key = (Key[])new Comparable[N];
 	}
 	
 	public void printQueue(){
@@ -26,7 +26,7 @@ public class MinPriorityQueueOrderedArray<Key extends Comparable<Key>>{
 		return top-1;
 	}
 
-	public void insert(Comparable item){
+	public void insert(Key item){
 		if(top==key.length) {
 			System.out.println("Removing items before inserting. ");
 			delMin();
@@ -45,12 +45,12 @@ public class MinPriorityQueueOrderedArray<Key extends Comparable<Key>>{
 		top++;
 	}
 
-	public Comparable delMin(){
+	public Key delMin(){
 		if(isEmpty()) {
 			System.out.println("Cannot delete from an empty Priority Queue.");
 			return null;
 		}
-		Comparable item = key[top-1];
+		Key item = key[top-1];
 		key[top-1] = null;
 		top--;
 		return item;
