@@ -16,7 +16,8 @@ public class QuickSort{
 		sort(arr,pivot+1,hi);
 	}
 	
-	private int partition(Comparable[] arr, int lo, int hi){
+	// Making it public so that other class could re-utilize the code.
+	public int partition(Comparable[] arr, int lo, int hi){
 		int i = lo + 1;
 		int j = hi;
 		if(i>j) { return lo;}
