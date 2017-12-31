@@ -36,8 +36,10 @@ public class SortingClient {
 			shuffle.knuthShuffle(arr);
 			SortUtil.printArrayComparable(arr);
 			QuickSort quick = new QuickSort();
-			quick.sort(arr);
-			Random rand = new Random();
+			quick.threeWaySort(arr);
+			System.out.println("Printing final array");
+			SortUtil.printArrayComparable(arr);
+			/*Random rand = new Random();
 			int k = rand.nextInt(arr.length) + 1;
 			System.out.println(" ##" + k + " Smallest element : " + arr[k-1]);
 			SortUtil.printArrayComparable(arr);
@@ -45,7 +47,7 @@ public class SortingClient {
 			SortUtil.printArrayComparable(arr);
 			QuickSelect quickS = new QuickSelect();
 			System.out.println(" ##" + k + " Smallest element : " + quickS.selectKthSmallest(arr, k));
-			SortUtil.printArrayComparable(arr);
+			SortUtil.printArrayComparable(arr);*/
 		}
 
 }

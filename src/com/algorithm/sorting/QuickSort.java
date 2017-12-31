@@ -8,6 +8,10 @@ public class QuickSort{
 		sort(arr,0,arr.length-1);
 	}
 	
+	public void threeWaySort(Comparable[] arr){
+		threeWaySort(arr,0,arr.length-1);
+	}
+	
 	// Find the position of a random pivot element. Recursively sort on first and 2nd halves. 
 	private void sort(Comparable[] arr, int lo, int hi){
 		if(lo>=hi) { return;}
@@ -32,4 +36,51 @@ public class QuickSort{
 		SortUtil.exchange(arr,j,lo);
 		return j;
 	}
+	
+	// Find the position of a random pivot element. Recursively sort on first and 2nd halves. 
+	private void threeWaySort(Comparable[] arr, int lo, int hi){
+		if(lo>=hi) { return;}
+		int[] pivotRange = threeWayPartition(arr,lo,hi);
+		System.out.println("Partition Range :" + pivotRange[0] +" : " + pivotRange[1] + " : ");
+		threeWaySort(arr,lo,pivotRange[0]-1);
+		threeWaySort(arr,pivotRange[1]+1,hi);
+	}
+	
+	// Adjusted indexes compared to old partition method.
+	public int[] threeWayPartition(Comparable[] arr, int lo, int hi) {
+		Comparable aux[] = new Comparable[arr.length];
+		int[] pivotRange = {-1,-1};
+		int i=lo+1;
+		int lt=lo;
+		int gt=hi+1;
+		/*if(i==gt) { return lo;}*/
+		Random generator = new Random();
+		int r = lo + generator.nextInt(hi-lo+1);
+		SortUtil.exchange(arr,r,lo);
+		int count = 0;
+		for(Comparable item : arr) {
+			aux[count++]=item;
+		}
+		Comparable item = arr[lo];
+		while(i<gt) {
+			if(SortUtil.less(arr[i], item)) {
+				SortUtil.exchange(arr, i, lt+1);
+				i++;
+				lt++;
+			}
+			else if (SortUtil.less(item,arr[i])) {
+				SortUtil.exchange(arr, i, --gt);
+			}
+			else {
+				i++;
+			}
+		}
+		SortUtil.exchange(arr, lo, lt);
+		System.out.println("Printing after partition : ");
+		SortUtil.printArrayComparable(arr);
+		pivotRange[0]=lt;
+		pivotRange[1]=gt-1;
+		return pivotRange;
+	}
+	
 }
