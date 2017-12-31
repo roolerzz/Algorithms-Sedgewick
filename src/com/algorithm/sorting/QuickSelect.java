@@ -19,5 +19,22 @@ public class QuickSelect{
 		else 
 			return quickSelect(arr,k,pivot+1,hi);
 	}
+	
+	//Iterative and better version of quick select.
+	public  Comparable select(Comparable[] arr, int k) {
+        if (k < 0 || k >= arr.length) {
+            throw new IllegalArgumentException("index is not between 0 and " + arr.length + ": " + k);
+        }
+        int lo = 0, hi = arr.length - 1;
+        while (hi > lo) {
+            int i = QSINSTANCE.partition(arr, lo, hi);
+            if      (i > k) hi = i - 1;
+            else if (i < k) lo = i + 1;
+            else return arr[i];
+        }
+        return arr[lo];
+    }
+
+
 
 }
