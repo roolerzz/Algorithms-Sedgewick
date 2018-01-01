@@ -1,7 +1,6 @@
 package com.algorithm.sorting;
 
 import com.dataStructures.BinaryHeapMaxPriorityQueue;
-import com.dataStructures.MinPriorityQueueOrderedArray;
 
 public class SortingClient {
 
