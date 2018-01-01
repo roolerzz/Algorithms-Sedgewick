@@ -1,7 +1,7 @@
 package com.algorithm.sorting;
 
-import java.util.Arrays;
-import java.util.Random;
+import com.dataStructures.BinaryHeapMaxPriorityQueue;
+import com.dataStructures.MinPriorityQueueOrderedArray;
 
 public class SortingClient {
 
@@ -24,7 +24,7 @@ public class SortingClient {
 			Arrays.sort(arr,StudentComparator.ROLL_COMPARATOR);
 			SortUtil.printArray(arr);*/
 		
-			Integer arr[] = {1,2,3,4,4,5,2,2,3,1};
+			Integer arr[] = {11,12,13,14,15,16,17,18,19,20};
 			
 			/*Integer arr[] = new Integer[10];
 			
@@ -34,11 +34,28 @@ public class SortingClient {
 			}*/
 			Shuffling shuffle = new Shuffling();
 			shuffle.knuthShuffle(arr);
-			SortUtil.printArrayComparable(arr);
-			QuickSort quick = new QuickSort();
+			/*SortUtil.printArrayComparable(arr);*/
+			BinaryHeapMaxPriorityQueue<Integer> pq = new BinaryHeapMaxPriorityQueue<>(10);
+			for(int i=0;i<10;i++) {
+				pq.insert(arr[i]);
+				System.out.println("Printing after inserting : " + arr[i] );
+				pq.printQueue();
+			}
+			System.out.println();
+			pq.insert(22);
+			pq.insert(25);
+			pq.insert(27);
+			/*System.out.println(pq.delMin());
+			System.out.println(pq.delMin());
+			System.out.println(pq.delMin());
+			System.out.println(pq.delMin());
+			System.out.println(pq.delMin());*/
+			pq.printQueue();
+			
+			/*QuickSort quick = new QuickSort();
 			quick.threeWaySort(arr);
 			System.out.println("Printing final array");
-			SortUtil.printArrayComparable(arr);
+			SortUtil.printArrayComparable(arr);*/
 			/*Random rand = new Random();
 			int k = rand.nextInt(arr.length) + 1;
 			System.out.println(" ##" + k + " Smallest element : " + arr[k-1]);
