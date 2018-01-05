@@ -116,27 +116,61 @@ public class BinarySearchTree<Key extends Comparable<Key>,Value>{
 		else return x;
 	}
 
-	public void delete(Key key) {}
-	
-	public Iterable<Key> iterator(){
-		 if (isEmpty()) return new PriorityQueue<Key>();
-		Queue<Key> queue = new PriorityQueue<>();
-		Node x = root;
-		while(x!=null) {
-			if(x.left == null) 
-			{
-				queue.add(x.key);
-				x=x.right;
-			}
-			x = x.left;
-		}
+	public void delete(Key key) {
 		
 		
-		
-		
-		return queue;
 		
 	}
+	
+	// does this binary tree satisfy symmetric order?
+    // Note: this test also ensures that data structure is a binary tree since order is strict
+    private boolean isBST() {
+        return isBST(root, null, null);
+    }
+    
+	
+	private boolean isBST(Node x, Key min, Key max) {
+		if (x == null)
+			return true;
+		if (min != null && x.key.compareTo(min) <= 0)
+			return false;
+		if (max != null && x.key.compareTo(max) >= 0)
+			return false;
+		return isBST(x.left, min, x.key) && isBST(x.right, x.key, max);
+	}
+
+	public Iterable<Key> keys(){
+		if (isEmpty()) return new PriorityQueue<Key>();
+	    return keys(min(), max());
+	}
+	
+	public Iterable<Key> keys(Key lo, Key hi){
+		if (lo == null) throw new IllegalArgumentException("first argument to keys() is null");
+	    if (hi == null) throw new IllegalArgumentException("second argument to keys() is null");
+	        Queue<Key> keys = new PriorityQueue<>();
+	        keys(root,keys,lo,hi);
+	        return keys;
+	}
+	
+	private void keys(Node x, Queue<Key> keys, Key lo, Key hi){
+		 if (x == null) return; 
+		 int cmplo = lo.compareTo(x.key);
+		 int cmphi=hi.compareTo(x.key);
+		 if(cmplo<0) keys(x.left,keys,lo,hi);
+		 if(cmplo <=0 && cmphi>=0) keys.add(x.key);
+		 if(cmphi >0) keys(x.right,keys,lo,hi);
+	}
+	
+	// Return the height of BST.
+	 public int height() {
+	        return height(root);
+	    }
+	
+    private int height(Node x) {
+    	if (x == null) return -1;
+    	      return 1 + Math.max(height(x.left), height(x.right));
+    }
+
 	
 	public Key min() {
 		// go left.
