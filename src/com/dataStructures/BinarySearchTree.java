@@ -116,12 +116,29 @@ public class BinarySearchTree<Key extends Comparable<Key>,Value>{
 		else return x;
 	}
 
-	public void delete(Key key) {
-		
-		
+	public void deleteMin() {
+		if(isEmpty()) ;
+		root = deleteMin(root);
 		
 	}
+	private Node deleteMin(Node x) {
+		if(x.left==null) return x.right;
+		x.left = deleteMin(x.left);
+		x.size = 1 + size(x.left)  + size (x.right);
+		return x;
+	}
 	
+	
+	
+	public void delete(Key key) {
+		 if (key == null) throw new IllegalArgumentException("calls delete() with a null key");
+		 root = delete(root, key);
+	}
+	
+	public Node delete(Node x, Key key) {
+	return null;
+		
+	}
 	// does this binary tree satisfy symmetric order?
     // Note: this test also ensures that data structure is a binary tree since order is strict
     private boolean isBST() {
