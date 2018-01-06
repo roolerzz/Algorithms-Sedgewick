@@ -6,7 +6,7 @@ import java.util.Queue;
 
 // extends comparable added to say that only comparable keys could be added into the data structure as our implementation 
 	// depends on the compareTo method. If that is not enforced, data structure operations might not work correctly.
-public class BinarySearchTree<Key extends Comparable<Key>,Value>{
+public class BinarySearchTreeST<Key extends Comparable<Key>,Value>{
 
 	private Node root;
 	
@@ -117,13 +117,25 @@ public class BinarySearchTree<Key extends Comparable<Key>,Value>{
 	}
 
 	public void deleteMin() {
-		if(isEmpty()) ;
+		if(isEmpty()) throw new NoSuchElementException("Symbol table underflow");
 		root = deleteMin(root);
 		
 	}
 	private Node deleteMin(Node x) {
 		if(x.left==null) return x.right;
 		x.left = deleteMin(x.left);
+		x.size = 1 + size(x.left)  + size (x.right);
+		return x;
+	}
+	
+	public void deleteMax() {
+		if(isEmpty()) throw new NoSuchElementException("Symbol table underflow");
+		root = deleteMax(root);
+		
+	}
+	private Node deleteMax(Node x) {
+		if(x.right==null) return x.left;
+		x.right = deleteMax(x.right);
 		x.size = 1 + size(x.left)  + size (x.right);
 		return x;
 	}
@@ -135,9 +147,24 @@ public class BinarySearchTree<Key extends Comparable<Key>,Value>{
 		 root = delete(root, key);
 	}
 	
+	// Hibbard Deletion Method. Makes the BST even for randome deletions.
 	public Node delete(Node x, Key key) {
-	return null;
-		
+		if(x==null) return null;
+		int cmp = key.compareTo(x.key);
+		if(cmp<0) delete(x.left,key);
+		else if (cmp>0) delete(x.right,key);
+		else {
+			if(x.right == null) return x.left;
+			if(x.left==null) return x.right;
+			
+			Node t = x;
+			x = min(t.right);
+			x.right = deleteMin(t.right);
+			x.left = t.left;
+			
+		}
+		x.size = size(x.left) + size(x.right) + 1;
+		return x;
 	}
 	// does this binary tree satisfy symmetric order?
     // Note: this test also ensures that data structure is a binary tree since order is strict
