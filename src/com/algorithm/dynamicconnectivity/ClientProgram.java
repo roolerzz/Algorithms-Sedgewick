@@ -1,22 +1,28 @@
 package com.algorithm.dynamicconnectivity;
 
-import com.dataStructures.MyLinkedList;
+import com.dataStructures.GenericLinkedListBasedStack;
 
 public class ClientProgram {
 	public static void main(String[] args){
-	MyLinkedList list= new MyLinkedList();
-	System.out.println(list);
-	list.add(10);
-	list.add(20);
-	list.add(30);
-	list.add(40);
-	list.add(50);
-	list.add(60);
-	list.add(70);
-	list.add(80);
-	list.insetAtEnd(1);
-	list.deleteFromBegining();
-	list.deleteFromEnd();
-	System.out.println(list);
+		GenericLinkedListBasedStack<String> stack = new GenericLinkedListBasedStack<String>();
+	System.out.println(stack);
+	stack.push("to");
+	stack.push("be");
+	stack.push("or");
+	stack.push("not");
+	stack.push("to");
+	/*stack.pop();*/
+	stack.push("be");
+	/*stack.pop();
+	stack.pop();*/
+	stack.push("that");
+	/*stack.pop();
+	stack.pop();
+	stack.pop();*/
+	stack.push("is");
+	for(String s : stack) {
+		System.out.println("String is : " + s);
+	}
+	System.out.println(stack);
 	}
 }

@@ -1,4 +1,4 @@
-package com.algorithm.hashing;
+package com.dataStructures;
 
 import java.util.PriorityQueue;
 import java.util.Queue;

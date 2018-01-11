@@ -3,12 +3,13 @@ package com.algorithm.sorting;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-import com.dataStructures.BinarySearchTree;
+import com.algorithm.hashing.SeperateChainingHashST;
+import com.dataStructures.BinarySearchTreeST;
 
 public class SortingClient {
 
 		public static void main(String[] args){
-			BinarySearchTree<String, Integer> st = new BinarySearchTree<String, Integer>(); 
+			SeperateChainingHashST<String, Integer> st = new SeperateChainingHashST<String, Integer>(); 
 			st.put("A", 8);
 			st.put("C", 4);
 			st.put("E", 12);
@@ -25,10 +26,21 @@ public class SortingClient {
 			System.out.println(st.get("C"));
 			System.out.println(st.get("X"));
 			System.out.println(st.get("R"));
-			Queue<String> q = (PriorityQueue<String>) st.keys("D","Z");
-			for (String elem : q) {
+			Queue<String> q = (PriorityQueue<String>) st.keys();
+			/*for (String elem : q) {
 				System.out.print(" : " + elem);
-			}
+			}*/
+			st.printSTArray();
+			/*st.deleteMin();
+			st.deleteMax();*/
+			st.delete("C");
+			st.delete("P");
+			st.printSTArray();
+			q = (PriorityQueue<String>) st.keys();
+			System.out.println();
+			/*for (String elem : q) {
+				System.out.print(" : " + elem);
+			}*/
 			//st.printST();
 			try {
 			/*st.delete("F");
