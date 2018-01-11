@@ -26,7 +26,17 @@ public class SequentialSearchSymbolTable<Key, Value>{
 			return key.toString() + " : " +  value.toString();
 		}
 	}
-
+	
+	@Override
+	public String toString() {
+		StringBuilder string = new StringBuilder();
+		for(Node x = first;x!=null; x=x.next) {
+			String temp = x.key.toString() + " : " +  x.value.toString() + "\n";
+			string.append(temp);
+		}
+		return string.toString();
+	}
+	
 	public boolean isEmpty() {
 		return size() == 0;
 	}
