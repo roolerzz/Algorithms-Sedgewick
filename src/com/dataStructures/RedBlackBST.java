@@ -102,7 +102,8 @@ public class RedBlackBST<Key extends Comparable<Key>,Value>{
 	}
 	
 	private Node delete(Node x, Key key) {
-		
+		// Method implementation missing due to its complexity :P .
+		return null;	
 	}
 	
 	private Node rotateLeft(Node h) {
