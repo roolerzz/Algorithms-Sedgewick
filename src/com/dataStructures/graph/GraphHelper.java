@@ -1,7 +1,11 @@
 package com.dataStructures.graph;
 
-public class GraphHelpers {
+public class GraphHelper {
 
+	public static void validateVertex(int v, int V) {
+		if(v < 0 || v >= V) throw new IllegalArgumentException("Vertex " + v + " is not between 0 and " + (V-1)); 
+	}
+	
 	public static int degree(Graph G, int v) {
 		int degree = 0;
 		for (int w : G.adj(v))
