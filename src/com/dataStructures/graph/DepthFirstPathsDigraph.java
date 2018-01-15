@@ -12,22 +12,13 @@ public class DepthFirstPathsDigraph {
 	
 	public int[] edgeTo;
 	
-//	public int[] distTo;
-	
 	private int s;
 	
 	public DepthFirstPathsDigraph(Digraph G, int s) {
 		marked = new boolean[G.V()];
 		edgeTo = new int[G.V()];
-		//distTo = new int[G.V()];
 		this.s = s;
 		GraphHelper.validateVertex(s, G.V());
-		/*for(int v = 0 ; v < G.V(); v++) {
-			distTo[v]=INFINITY;
-		}*/
-		//distTo[s]=0;
-		
-		//edgeTo[s]=s;
 		dfs(G,s);
 	}
 	
@@ -35,8 +26,6 @@ public class DepthFirstPathsDigraph {
 		marked[v]=true;
 		for(int w : G.adj(v)) {
 			if(!marked[w]) {
-				//marked[w]=true;
-				//distTo[w]=distTo[v]+1;
 				edgeTo[w]=v;
 				dfs(G,w);
 			}
