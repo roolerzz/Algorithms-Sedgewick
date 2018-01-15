@@ -44,7 +44,7 @@ public class DepthFirstPaths {
 
 	private void validateVertex(int v) {
 		int V = marked.length;
-		if(v<0 || v>V) throw new IllegalArgumentException("Vertex : " + v + " is not b/w 0 and " + (V-1));
+		if(v<0 || v>=V) throw new IllegalArgumentException("Vertex : " + v + " is not b/w 0 and " + (V-1));
 	}
 	 
 	/*public static void main(String[] args) {

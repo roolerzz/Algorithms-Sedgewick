@@ -49,7 +49,7 @@ public class BreadthFirstPaths {
 	
 	private void validateVertex(int v) {
 		int V = marked.length;
-		if(v<0 || v>V) throw new IllegalArgumentException("Vertex " + v + " is not b/w 0 and " + (V-1));
+		if(v<0 || v>=V) throw new IllegalArgumentException("Vertex " + v + " is not b/w 0 and " + (V-1));
 	}
 	
 	public boolean hasPathTo(int v) {

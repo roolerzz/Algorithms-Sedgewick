@@ -56,7 +56,7 @@ public class AdjacencyListGraph {
 	}
 	
 	private void validateVertex(int v) {
-		if(v<0 || v>V)
+		if(v<0 || v>=V)
 			throw new IllegalArgumentException("Vertex : " + v + " is not between 0 and " + (V-1) );
 	}
 	
