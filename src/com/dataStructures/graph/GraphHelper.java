@@ -15,14 +15,14 @@ public class GraphHelper {
 		}
 	}
 	
-	public static int degree(Graph G, int v) {
+	public static int degree(AdjacencyListGraph G, int v) {
 		int degree = 0;
 		for (int w : G.adj(v))
 			degree++ ;
 		return degree;
 	}
 	
-	public static int maxDegree(Graph G) {
+	public static int maxDegree(AdjacencyListGraph G) {
 		int max = 0;
 		for(int v = 0 ; v < G.V(); v++) 
 			if(degree(G, v)>max)
@@ -30,11 +30,11 @@ public class GraphHelper {
 		return max;
 	}
 	
-	public static double averageDegree(Graph G) {
+	public static double averageDegree(AdjacencyListGraph G) {
 		return 2*G.E()/G.V();
 	}
 	
-	public static int numberOfSelfLoops(Graph G) {
+	public static int numberOfSelfLoops(AdjacencyListGraph G) {
 		int count = 0; 
 		for(int v = 0; v<G.V();v++) 
 			 for(int w : G.adj(v))
