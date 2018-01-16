@@ -6,6 +6,15 @@ public class GraphHelper {
 		if(v < 0 || v >= V) throw new IllegalArgumentException("Vertex " + v + " is not between 0 and " + (V-1)); 
 	}
 	
+	public static void validateVertices(Iterable<Integer> vertices, int V) {
+		if (vertices == null)
+			throw new IllegalArgumentException("Vertices is null");
+		for (int v : vertices) {
+			if (v < 0 || v >= V)
+				throw new IllegalArgumentException("vertex " + v + " is not between 0 and " + (V - 1));
+		}
+	}
+	
 	public static int degree(Graph G, int v) {
 		int degree = 0;
 		for (int w : G.adj(v))

@@ -17,34 +17,62 @@ public class BreadthFirstPaths {
 		marked = new boolean[G.V()];
 		edgeTo  = new int[G.V()];
 		distTo = new int[G.V()];
+		for (int v = 0; v < G.V(); v++)
+			distTo[v] = INFINITY;
 		validateVertex(s);
 		bfs(G,s);
 	}
 	
-	public int distTo(int v) {
-		validateVertex(v);
-		return distTo[v];
-	}
-	
 	private void bfs(AdjacencyListGraph G, int s) {
 		Queue<Integer> queue = new Queue<>();
-		
-		for (int v = 0; v < G.V(); v++)
-			distTo[v] = INFINITY;
-		queue.enqueue(s);
-		distTo[s] = 0;
 		marked[s] = true;
+		distTo[s] = 0;
+		queue.enqueue(s);
 		while (!queue.isEmpty()) {
 			int v = queue.dequeue();
 			for (int w : G.adj(v)) {
 				if (!marked[w]) {
 					edgeTo[w] = v;
 					marked[w] = true;
-					queue.enqueue(w);
 					distTo[w] = distTo[v]+1;
+					queue.enqueue(w);
 				}
 			}
 		}
+	}
+	
+	public BreadthFirstPaths(AdjacencyListGraph G, Iterable<Integer> sources) {
+		marked = new boolean[G.V()];
+		edgeTo  = new int[G.V()];
+		distTo = new int[G.V()];
+		for (int v = 0; v < G.V(); v++)
+			distTo[v] = INFINITY;
+		GraphHelper.validateVertices(sources,marked.length);
+		bfs(G,sources);
+	}
+	private void bfs(AdjacencyListGraph G, Iterable<Integer> sources) {
+		Queue<Integer> queue = new Queue<>();
+		for(int s : sources) {
+			marked[s] = true;
+			distTo[s] = 0;
+			queue.enqueue(s);	
+		}
+		while (!queue.isEmpty()) {
+			int v = queue.dequeue();
+			for (int w : G.adj(v)) {
+				if (!marked[w]) {
+					edgeTo[w] = v;
+					marked[w] = true;
+					distTo[w] = distTo[v]+1;
+					queue.enqueue(w);
+				}
+			}
+		}
+	}
+
+	public int distTo(int v) {
+		validateVertex(v);
+		return distTo[v];
 	}
 	
 	private void validateVertex(int v) {
