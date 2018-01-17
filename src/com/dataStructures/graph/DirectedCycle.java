@@ -33,7 +33,8 @@ public class DirectedCycle {
                 dfs(G, w);
             }
             else if (onStack[w]) {
-            	 cycle = new Stack<Integer>();
+            	System.out.println("For when the cycle is detected marked is: " +marked[w]); 
+            	cycle = new Stack<Integer>();
                  for (int x = v; x != w; x = edgeTo[x]) {
                      cycle.push(x);
                  }
