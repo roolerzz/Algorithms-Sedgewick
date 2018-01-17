@@ -10,6 +10,8 @@ public class Cycle {
 	
 	private Stack<Integer> cycle;
 	
+	private int counter= 0;
+	
 	public Cycle(AdjacencyListGraph G) {
 		// check if graph has self loops or parallel edges.
 		if(hasSelfLoops(G)) return;
@@ -17,7 +19,9 @@ public class Cycle {
 		marked = new boolean[G.V()];
 		edgeTo = new int[G.V()];
 		for(int v = 0; v < G.V() ; v++) {
-			if(!marked[v])
+			// added for short circuit.
+			if(!marked[v] && cycle == null)
+				System.out.println("Counter: " + (++counter));
 				dfs(G,v,-1);
 		}
 	}
