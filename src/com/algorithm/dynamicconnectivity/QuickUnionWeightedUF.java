@@ -14,7 +14,7 @@ public class QuickUnionWeightedUF{
 
 	public int[] id;
 	public int[] size;
-	QuickUnionWeightedUF(int n){
+	public QuickUnionWeightedUF(int n){
 		id = new int[n];
 		size = new int[n];
 		for (int i=0; i<n;i++){
