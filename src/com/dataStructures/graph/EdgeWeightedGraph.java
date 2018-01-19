@@ -82,7 +82,7 @@ public class EdgeWeightedGraph {
 		Bag<Edge> list = new Bag<Edge>(); 
 		for(int v = 0 ; v < V ; v++) {
 			int selfLoops = 0;
-			for (Edge e : adj(V)) {
+			for (Edge e : adj(v)) {
 				if(e.other(v)>v)
 					list.add(e);
 				else if (e.other(v)==v) {
