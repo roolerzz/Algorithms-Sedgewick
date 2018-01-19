@@ -48,7 +48,7 @@ public class QuickUnionWeightedUF{
 			size[rootP]+=size[rootQ];
 			id[rootQ] = id[rootP];	
 		}	
-		printArray(id);
+		//printArray(id);
 	}
 
 	public void printArray(int[] arr){
