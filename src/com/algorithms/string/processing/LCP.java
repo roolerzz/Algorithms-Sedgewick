@@ -1,9 +1,9 @@
 package com.algorithms.string.processing;
 
-public class LongestCommonPrefix {
+public class LCP {
 
 	// Given 2 strings find the logest common prefix of the strings.
-	private LongestCommonPrefix(){
+	private LCP(){
 	}
 	
 	public static int findLengthLCP(String s1, String s2) {
