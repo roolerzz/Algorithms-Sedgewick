@@ -5,7 +5,7 @@ public class QuickFindUF {
 	// numbers from 0 to N-1, for each object, value in the array depicts its connection to other objects. 
 	// Two Objects are connected if both have same value.
 
-	public int[] id;
+	private int[] id;
 
 	QuickFindUF(int n){
 		id = new int[n];
