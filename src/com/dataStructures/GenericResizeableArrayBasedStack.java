@@ -8,7 +8,7 @@ public class GenericResizeableArrayBasedStack<Item>{
 	// and return the array. In case of pop, operation, to optimize that alot of space is not wasted, everytime the array is 1/4 of its size full,
 	// create a new array with half the size and move elements to that.
 	
-	private Item[] arr = null;
+	private Item[] arr;
 
 	private int top=0;
 

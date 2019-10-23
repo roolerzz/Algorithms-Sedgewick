@@ -3,13 +3,12 @@ package com.algorithm.sorting;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-import com.algorithm.hashing.SeperateChainingHashST;
-import com.dataStructures.BinarySearchTreeST;
+import com.dataStructures.SeperateChainingHashST;
 
 public class SortingClient {
 
 		public static void main(String[] args){
-			SeperateChainingHashST<String, Integer> st = new SeperateChainingHashST<String, Integer>(); 
+			SeperateChainingHashST<String, Integer> st = new SeperateChainingHashST<String, Integer>();
 			st.put("A", 8);
 			st.put("C", 4);
 			st.put("E", 12);

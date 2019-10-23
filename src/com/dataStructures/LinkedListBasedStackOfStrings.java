@@ -10,11 +10,12 @@ public class LinkedListBasedStackOfStrings{
 	}
 	
 	public void push(String obj){
-		if(isEmpty()){
-			first = new Node();
-			first.item=obj;
-			return;
-		}
+		// Below code seems redundant.
+//		if(isEmpty()){
+//			first = new Node();
+//			first.item=obj;
+//			return;
+//		}
 			Node oldFirst = first;
 			first = new Node();
 			first.item=obj;

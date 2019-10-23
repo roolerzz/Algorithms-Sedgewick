@@ -2,7 +2,7 @@ package com.dataStructures;
 
 public class ArrayBasedStackOfStrings{
 
-	private String[] arr = null;
+	private String[] arr;
 
 	private int top=0;
 

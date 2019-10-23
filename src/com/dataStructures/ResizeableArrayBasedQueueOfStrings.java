@@ -11,7 +11,7 @@ public class ResizeableArrayBasedQueueOfStrings {
 	// space is not wasted, everytime the array is 1/4 of its size full,
 	// create a new array with half the size and move elements to that.
 
-	private String[] arr = null;
+	private String[] arr;
 
 	private int head = 0;
 

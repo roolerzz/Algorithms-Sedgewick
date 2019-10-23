@@ -4,11 +4,11 @@ package com.dataStructures;
 public class ResizeableArrayBasedStackOfStrings{
 	// Earlier we needed to provide the size of the array before hand, to initialize, which is kind of the restriction in cases, where client
 	// does not know what is number of elements its going to insert in the stack. To work with that limitation, we need to resize the array.
-	// Everytime in case of push operation, if the stack is full, create a new array with double the size, copy the existing contents onto the new
-	// and return the array. In case of pop, operation, to optimize that alot of space is not wasted, everytime the array is 1/4 of its size full,
+	// Every time in case of push operation, if the stack is full, create a new array with double the size, copy the existing contents onto the new
+	// and return the array. In case of pop, operation, to optimize that a lot of space is not wasted, every time the array is 1/4 of its size full,
 	// create a new array with half the size and move elements to that.
 	
-	private String[] arr = null;
+	private String[] arr;
 
 	private int top=0;
 
