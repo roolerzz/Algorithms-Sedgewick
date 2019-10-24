@@ -18,7 +18,7 @@ public class BinarySearchInSortedArray{
 		int iterations= 0;
 		while(lowInd<=highInd){
 			iterations++;
-			int midInd = lowInd + (highInd-lowInd+1)/2;	
+			int midInd = lowInd + (highInd-lowInd)/2;
 			if(arr[midInd]==key){
 			System.out.println("Key : "+key + " Found");
 			System.out.println("Iterations if key found:" + iterations);
@@ -34,5 +34,12 @@ public class BinarySearchInSortedArray{
 		System.out.println("Key : " + key + " not present in the array.");
 		System.out.println("Iterations if key not found:" + iterations);
 		return false;
+	}
+
+	public static void main(String[] args) {
+		BinarySearchInSortedArray barr = new BinarySearchInSortedArray();
+		barr.findKey(20);
+		barr.findKey(10);
+		barr.findKey(123);
 	}
 }
