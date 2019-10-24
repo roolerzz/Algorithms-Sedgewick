@@ -90,26 +90,32 @@ public class GenericLinkedListBasedQueue<Item> implements Iterable<Item>{
 }
 
 
-/*public class ClientProgram {
+ class ClientProgram {
 	public static void main(String[] args){
-	LinkedListQueueOfStrings queue = new LinkedListQueueOfStrings();
+	GenericLinkedListBasedQueue<String> queue = new GenericLinkedListBasedQueue<>();
 	queue.enqueue("to");
 	queue.enqueue("be");
 	queue.enqueue("or");
 	queue.enqueue("not");
 	queue.enqueue("to");
-	queue.dequeue();
+//	queue.dequeue();
 	queue.enqueue("be");
-	queue.dequeue();
-	queue.dequeue();
+//	queue.dequeue();
+//	queue.dequeue();
 	queue.enqueue("that");
-	queue.dequeue();
-	queue.dequeue();
-	queue.dequeue();
-	queue.enqueue("is");
-	queue.dequeue();
-	queue.dequeue();
-	queue.dequeue();
-	queue.dequeue();
+//	queue.dequeue();
+//	queue.dequeue();
+//	queue.dequeue();
+//	queue.enqueue("is");
+//	queue.dequeue();
+//	queue.dequeue();
+//	queue.dequeue();
+//	queue.dequeue();
+	Iterator<String> it = queue.iterator();
+	System.out.println();
+	System.out.println("Starting the iteration.");
+	while(it.hasNext()) {
+		System.out.println(it.next());
 	}
-}*/
+	}
+}
