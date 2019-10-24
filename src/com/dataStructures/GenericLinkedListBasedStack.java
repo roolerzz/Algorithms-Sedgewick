@@ -23,7 +23,7 @@ public class GenericLinkedListBasedStack<Item> implements Iterable<Item>{
 	}
 
 
-	private Node first = null; 
+	private Node first;
 
 	private class Node {
 		Item item;
@@ -31,11 +31,12 @@ public class GenericLinkedListBasedStack<Item> implements Iterable<Item>{
 	}
 	
 	public void push(Item obj){
-		if(isEmpty()){
-			first = new Node();
-			first.item=obj;
-			return;
-		}
+// Redundant Code.
+//		if(isEmpty()){
+//			first = new Node();
+//			first.item=obj;
+//			return;
+//		}
 			Node oldFirst = first;
 			first = new Node();
 			first.item=obj;
