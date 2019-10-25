@@ -10,7 +10,7 @@ public class ShellSort {
 		int h=1;
 		int noOfComparisons = 0;
 		int noOfExchanges = 0;
-		while(h<N) {
+		while(h<N/3) {
 			h = 3*h + 1;	
 		}
 		

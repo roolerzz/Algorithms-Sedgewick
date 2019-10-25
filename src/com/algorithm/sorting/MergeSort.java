@@ -8,9 +8,9 @@ public class MergeSort {
 	}
 
 	private void sort(Comparable[] arr, Comparable[] aux ,int low, int high) {
-		int mid = low + (high - low) / 2;
 		if (low >= high)
 			return;
+		int mid = low + (high - low) / 2;
 		sort(arr, aux, low, mid);
 		sort(arr, aux ,mid + 1, high);
 		merge(arr, aux ,low, mid, high);
@@ -33,6 +33,23 @@ public class MergeSort {
 			else arr[k] = aux[i++];
 		}
 
+	}
+
+	public static void main(String[] args) {
+		Comparable[] arr = {4, 6, 10, 3, 7, 9, 2, 1};
+		MergeSort ms = new MergeSort();
+		System.out.println("Array before sorting");
+		printArray(arr);
+		ms.sort(arr);
+		System.out.println("Array after sorting");
+		printArray(arr);
+
+	}
+
+	public static void printArray(Comparable[] arr){
+		for (int i = 0 ; i < arr.length ; i++) {
+			System.out.print(arr[i] + " -> ");
+		}
 	}
 
 }
