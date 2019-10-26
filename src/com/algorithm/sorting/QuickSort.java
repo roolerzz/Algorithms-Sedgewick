@@ -1,5 +1,7 @@
 package com.algorithm.sorting;
 
+import edu.princeton.cs.algs4.Knuth;
+
 import java.util.Random;
 
 public class QuickSort{
@@ -52,7 +54,8 @@ public class QuickSort{
 		int[] pivotRange = {-1,-1};
 		int i=lo+1;
 		int lt=lo;
-		int gt=hi+1;
+//		int gt=hi+1;
+		int gt=hi;
 		/*if(i==gt) { return lo;}*/
 		Random generator = new Random();
 		int r = lo + generator.nextInt(hi-lo+1);
@@ -62,14 +65,14 @@ public class QuickSort{
 			aux[count++]=item;
 		}
 		Comparable item = arr[lo];
-		while(i<gt) {
+		while(i<=gt) {
 			if(SortUtil.less(arr[i], item)) {
 				SortUtil.exchange(arr, i, lt+1);
 				i++;
 				lt++;
 			}
 			else if (SortUtil.less(item,arr[i])) {
-				SortUtil.exchange(arr, i, --gt);
+				SortUtil.exchange(arr, i, gt--);
 			}
 			else {
 				i++;
@@ -79,8 +82,19 @@ public class QuickSort{
 		System.out.println("Printing after partition : ");
 		SortUtil.printArrayComparable(arr);
 		pivotRange[0]=lt;
-		pivotRange[1]=gt-1;
+		pivotRange[1]=gt;
 		return pivotRange;
+	}
+
+	public static void main(String[] args) {
+		Comparable[] arr = {1,2,3,4,4,4,5,5,5,6,6,7,7,7,10,11,15,22,36};
+		Knuth.shuffle(arr);
+		System.out.println("Array After shuffling");
+		MergeSort.printArray(arr);
+		QuickSort s = new QuickSort();
+		s.threeWaySort(arr);
+		System.out.println("Array After Sorting");
+		MergeSort.printArray(arr);
 	}
 	
 }

@@ -42,4 +42,15 @@ public class Shuffling {
 		//printArrays(arr, rand, len);
 	}
 
+	public static void main(String[] args) {
+		Comparable[] arr = {1,2,3,4,5,6,7,8,9};
+		Shuffling shuffle = new Shuffling();
+		System.out.println("Before shuffling");
+		MergeSort.printArray(arr);
+		shuffle.knuthShuffle(arr);
+		System.out.println("After shuffling");
+		MergeSort.printArray(arr);
+
+	}
+
 }
