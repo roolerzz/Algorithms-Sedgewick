@@ -43,13 +43,13 @@ public class BinaryHeapMaxPriorityQueue<Key extends Comparable<Key>>{
 	public Key delMax(){
 		//Exchange Root max elem key[1] with last element and Sink new root to its correct position such that heap is ordered.
 		// Give special attention to indices of SortUtil exchange compare to the priority queue internal data structure array.
-		if(top==1) {
+		if(isEmpty()) {
 			throw new UnsupportedOperationException("Deletion Not supported on an empty priority queue.");
 		}
 		Key item = key[ROOT];
-		SortUtil.exchange(key, ROOT, top-1);
+		SortUtil.exchange(key, ROOT, top--);
 		sink(ROOT);
-		top--;
+//		top--;
 		return item;
 	}
 	

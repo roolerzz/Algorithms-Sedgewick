@@ -29,7 +29,7 @@ public class SeperateChainingHashST<Key,Value>{
 	
 	private void resize(int chains) {
 		System.out.println("Array resized to " + chains + " chains.");
-		SeperateChainingHashST<Key, Value> temp = new SeperateChainingHashST<Key,Value>(chains);
+		SeperateChainingHashST<Key, Value> temp = new SeperateChainingHashST<>(chains);
 		for(int i=0; i<m;i++) {
 			for(Key key : st[i].keys()) {
 				temp.put(key, st[i].get(key));
@@ -50,10 +50,10 @@ public class SeperateChainingHashST<Key,Value>{
 	
 	public void put(Key key, Value val) {
 		 if (key == null) throw new IllegalArgumentException("first argument to put() is null");
-	        if (val == null) {
-	            delete(key);
-	            return;
-	        }
+		 if (val == null) {
+		 	delete(key);
+		 	return;
+		 }
 	     // double table size if average length of list >= 10
 	        if (n >= 10*m) resize(2*m);
 	        int i = hash(key);
